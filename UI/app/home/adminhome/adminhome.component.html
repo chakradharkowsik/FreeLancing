@@ -1,0 +1,25 @@
+<div class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-band">User Management </div>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a [routerLink]="['/login']" href="#">Logout</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <h1 class="title">Welcome {{UserName}} you are visiting this page as admin :)</h1>
+    </div>
+</div>
+<div class="row">
+    <div>
+        There are total of {{users.length}} user in system namely:
+        <ul>
+            <li *ngFor="let user of users">{{user.userName}} </li>
+        </ul>
+    </div>
+</div>
