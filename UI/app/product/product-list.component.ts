@@ -16,7 +16,8 @@ export class ProductListComponent implements OnInit {
     showImage: boolean = false;
     listFilter: string;
     errorMessage: string;
-
+    selectedYear: any;
+    years: Array<any>;
     products: IProduct[];
 
     public rows: Array<any> = [];
@@ -45,8 +46,12 @@ export class ProductListComponent implements OnInit {
 
     toggleImage(): void {
         this.showImage = !this.showImage;
-    }
+    }   
 
+    toNumber() {
+        // this.selectedYear = +this.levelNum;
+        console.log(JSON.stringify(this.selectedYear));
+    }
     ngOnInit(): void {
         this._productService.getProducts()
             .subscribe(products => {
@@ -54,7 +59,7 @@ export class ProductListComponent implements OnInit {
                 this.onChangeTable(this.config);
             },
             error => this.errorMessage = <any>error);
-
+        this.years = [{ id: 2015, value: 2015 }, { id: 2016, value: 2016 }, { id: 2017, value: 2017 }];
     }
 
     onRatingClicked(message: string): void {
